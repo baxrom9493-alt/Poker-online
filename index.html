@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POKERUZ Online</title>
+    <style>
+        body { margin: 0; background-color: #1a5c32; color: white; font-family: sans-serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        .balance-bar { padding: 15px; text-align: center; background: rgba(0,0,0,0.5); font-size: 20px; font-weight: bold; color: #ffd700; }
+        .table { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .community-cards, .player-hand { display: flex; gap: 8px; margin: 15px 0; }
+        .card { width: 55px; height: 80px; background: white; border-radius: 6px; color: black; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .my-card { border: 2px solid #ffd700; width: 65px; height: 95px; font-size: 22px; }
+        .controls { display: flex; justify-content: space-around; padding: 25px; background: #111; border-top: 2px solid #333; }
+        button { padding: 12px 25px; border-radius: 8px; border: none; font-weight: bold; font-size: 16px; cursor: pointer; }
+        .btn-raise { background: #f1c40f; color: black; }
+        .btn-other { background: #444; color: white; }
+    </style>
+</head>
+<body>
+    <div class="balance-bar">💰 <span id="balance">1,000,000</span> UZS</div>
+    <div class="table">
+        <div class="community-cards">
+            <div class="card">10♠</div><div class="card" style="color:red">J♦</div><div class="card" style="color:green">2♣</div><div class="card" style="color:red">2♥</div><div class="card" style="color:green">5♣</div>
+        </div>
+        <div class="player-hand">
+            <div class="card my-card">8♦</div><div class="card my-card">4♠</div>
+        </div>
+    </div>
+    <div class="controls">
+        <button class="btn-other" onclick="alert('Fold qildingiz')">FOLD</button>
+        <button class="btn-other" onclick="alert('Call qildingiz')">CALL</button>
+        <button class="btn-raise" onclick="raiseMoney()">RAISE</button>
+    </div>
+    <script>
+        let money = 1000000;
+        function raiseMoney() {
+            money -= 10000;
+            document.getElementById('balance').innerText = money.toLocaleString();
+            alert("Siz 10,000 UZS tikdingiz!");
+        }
+    </script>
+</body>
+</html>
